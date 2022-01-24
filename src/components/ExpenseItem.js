@@ -9,7 +9,7 @@ const ExpenseItem = (props) => {
   
 
   const clickHandler = () => {
-    setTitle('1010101010Hacked101010');
+    setTitle('Updated');
     console.log(title);
   };
   return (
