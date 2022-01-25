@@ -4,7 +4,7 @@ import "./ExpenseForm.css";
 
 //* User Input Expense Form
 const ExpenseForm = (props) => {
-  let c = console.log.bind();
+
 
   //! Below are the two ways we can use multiple states in this component
 
@@ -50,7 +50,7 @@ const ExpenseForm = (props) => {
 
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
     props.onSaveExpenseData(expenseData);
