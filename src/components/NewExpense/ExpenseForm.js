@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 //* User Input Expense Form
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   let c = console.log.bind();
 
   //! Below are the two ways we can use multiple states in this component
@@ -53,20 +53,22 @@ const ExpenseForm = () => {
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
-    c(expenseData);
-    setEnteredTitle('');
-    setEnteredAmount('');
-    setEnteredDate('');
-
+    props.onSaveExpenseData(expenseData);
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
   };
-
 
   return (
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" value={enteredTitle} onChange={titleChangeHandler} />
+          <input
+            type="text"
+            value={enteredTitle}
+            onChange={titleChangeHandler}
+          />
         </div>
 
         <div className="new-expense__control">
@@ -85,7 +87,7 @@ const ExpenseForm = () => {
         <input
           type="date"
           min="2022"
-          step="2025"
+          
           value={enteredDate}
           onChange={dateChangeHandler}
         />
